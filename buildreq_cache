@@ -1,4 +1,4 @@
-5.13.4
+5.13.5
 karchive-dev
 kcrash-dev
 kdbusaddons-dev
@@ -17,4 +17,5 @@ kunitconversion-dev
 kwindowsystem-dev
 plasma-framework-dev
 plasma-workspace-dev
+qtx11extras-dev
 sonnet-dev
