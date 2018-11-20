@@ -6,7 +6,7 @@
 #
 Name     : khotkeys
 Version  : 5.14.3
-Release  : 7
+Release  : 8
 URL      : https://download.kde.org/stable/plasma/5.14.3/khotkeys-5.14.3.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.14.3/khotkeys-5.14.3.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.14.3/khotkeys-5.14.3.tar.xz.sig
@@ -19,22 +19,31 @@ Requires: khotkeys-license = %{version}-%{release}
 Requires: khotkeys-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : karchive-dev
+BuildRequires : kcrash-dev
+BuildRequires : kdbusaddons-dev
+BuildRequires : kdelibs4support-dev
+BuildRequires : kdesignerplugin-dev
+BuildRequires : kemoticons-dev
 BuildRequires : kglobalaccel-dev
+BuildRequires : kguiaddons-dev
+BuildRequires : kinit-dev
+BuildRequires : kitemmodels-dev
+BuildRequires : knotifications-dev
+BuildRequires : kpackage-dev
+BuildRequires : kparts-dev
+BuildRequires : ktextwidgets-dev
+BuildRequires : kunitconversion-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : plasma-framework-dev
 BuildRequires : plasma-workspace-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qtx11extras-dev
+BuildRequires : sonnet-dev
 
 %description
 No detailed description available
-
-%package abi
-Summary: abi components for the khotkeys package.
-Group: Default
-
-%description abi
-abi components for the khotkeys package.
-
 
 %package data
 Summary: data components for the khotkeys package.
@@ -97,7 +106,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541531696
+export SOURCE_DATE_EPOCH=1542741567
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -105,7 +114,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1541531696
+export SOURCE_DATE_EPOCH=1542741567
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
 cp COPYING %{buildroot}/usr/share/package-licenses/khotkeys/COPYING
@@ -117,11 +126,6 @@ popd
 
 %files
 %defattr(-,root,root,-)
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libkhotkeysprivate.so.5.14.3.abi
-/usr/share/abi/libkhotkeysprivate.so.5.abi
 
 %files data
 %defattr(-,root,root,-)
