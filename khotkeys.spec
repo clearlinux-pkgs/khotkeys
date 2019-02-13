@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.14.5
-Release  : 11
-URL      : https://download.kde.org/stable/plasma/5.14.5/khotkeys-5.14.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.14.5/khotkeys-5.14.5.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.14.5/khotkeys-5.14.5.tar.xz.sig
+Version  : 5.15.0
+Release  : 12
+URL      : https://download.kde.org/stable/plasma/5.15.0/khotkeys-5.15.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.0/khotkeys-5.15.0.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.0/khotkeys-5.15.0.tar.xz.sig
 Summary  : KHotKeys
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -82,14 +82,14 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.14.5
+%setup -q -n khotkeys-5.15.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546964678
+export SOURCE_DATE_EPOCH=1550023009
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -97,7 +97,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1546964678
+export SOURCE_DATE_EPOCH=1550023009
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
 cp COPYING %{buildroot}/usr/share/package-licenses/khotkeys/COPYING
@@ -124,12 +124,18 @@ popd
 
 %files doc
 %defattr(0644,root,root,0755)
+/usr/share/doc/HTML/ca/kcontrol/khotkeys/document-open.png
 /usr/share/doc/HTML/ca/kcontrol/khotkeys/groups-comment.png
 /usr/share/doc/HTML/ca/kcontrol/khotkeys/index.cache.bz2
 /usr/share/doc/HTML/ca/kcontrol/khotkeys/index.docbook
 /usr/share/doc/HTML/ca/kcontrol/khotkeys/manage-export.png
 /usr/share/doc/HTML/ca/kcontrol/khotkeys/oxygen-22x22-edit-clear-locationbar-rtl.png
 /usr/share/doc/HTML/ca/kcontrol/khotkeys/settings.png
+/usr/share/doc/HTML/ca/kcontrol/khotkeys/shortcuts-action-command.png
+/usr/share/doc/HTML/ca/kcontrol/khotkeys/shortcuts-action-dbus.png
+/usr/share/doc/HTML/ca/kcontrol/khotkeys/shortcuts-action-keyboard.png
+/usr/share/doc/HTML/ca/kcontrol/khotkeys/shortcuts-trigger-keyboard.png
+/usr/share/doc/HTML/ca/kcontrol/khotkeys/shortcuts-trigger-mouse.png
 /usr/share/doc/HTML/de/kcontrol/khotkeys/index.cache.bz2
 /usr/share/doc/HTML/de/kcontrol/khotkeys/index.docbook
 /usr/share/doc/HTML/en/kcontrol/khotkeys/document-open.png
@@ -180,7 +186,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.14.5
+/usr/lib64/libkhotkeysprivate.so.5.15.0
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
