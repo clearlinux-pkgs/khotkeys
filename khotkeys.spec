@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.15.1
-Release  : 13
-URL      : https://download.kde.org/stable/plasma/5.15.1/khotkeys-5.15.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.1/khotkeys-5.15.1.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.1/khotkeys-5.15.1.tar.xz.sig
+Version  : 5.15.2
+Release  : 14
+URL      : https://download.kde.org/stable/plasma/5.15.2/khotkeys-5.15.2.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.2/khotkeys-5.15.2.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.2/khotkeys-5.15.2.tar.xz.sig
 Summary  : KHotKeys
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -42,6 +42,7 @@ Group: Development
 Requires: khotkeys-lib = %{version}-%{release}
 Requires: khotkeys-data = %{version}-%{release}
 Provides: khotkeys-devel = %{version}-%{release}
+Requires: khotkeys = %{version}-%{release}
 
 %description dev
 dev components for the khotkeys package.
@@ -82,14 +83,14 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.15.1
+%setup -q -n khotkeys-5.15.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550587689
+export SOURCE_DATE_EPOCH=1551200428
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -97,7 +98,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1550587689
+export SOURCE_DATE_EPOCH=1551200428
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
 cp COPYING %{buildroot}/usr/share/package-licenses/khotkeys/COPYING
@@ -186,7 +187,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.15.1
+/usr/lib64/libkhotkeysprivate.so.5.15.2
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
