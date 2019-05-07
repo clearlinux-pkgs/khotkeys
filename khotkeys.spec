@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.15.4
-Release  : 18
-URL      : https://download.kde.org/stable/plasma/5.15.4/khotkeys-5.15.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.4/khotkeys-5.15.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.4/khotkeys-5.15.4.tar.xz.sig
+Version  : 5.15.5
+Release  : 19
+URL      : https://download.kde.org/stable/plasma/5.15.5/khotkeys-5.15.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.5/khotkeys-5.15.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.5/khotkeys-5.15.5.tar.xz.sig
 Summary  : KHotKeys
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -19,28 +19,11 @@ Requires: khotkeys-license = %{version}-%{release}
 Requires: khotkeys-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : karchive-dev
-BuildRequires : kcrash-dev
-BuildRequires : kdbusaddons-dev
-BuildRequires : kdelibs4support-dev
-BuildRequires : kdesignerplugin-dev
-BuildRequires : kemoticons-dev
 BuildRequires : kglobalaccel-dev
-BuildRequires : kguiaddons-dev
-BuildRequires : kinit-dev
-BuildRequires : kitemmodels-dev
-BuildRequires : knotifications-dev
-BuildRequires : kpackage-dev
-BuildRequires : kparts-dev
-BuildRequires : ktextwidgets-dev
-BuildRequires : kunitconversion-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : plasma-framework-dev
 BuildRequires : plasma-workspace-dev
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : qtx11extras-dev
-BuildRequires : sonnet-dev
 
 %description
 No detailed description available
@@ -100,14 +83,14 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.15.4
+%setup -q -n khotkeys-5.15.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557014349
+export SOURCE_DATE_EPOCH=1557240789
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -122,7 +105,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557014349
+export SOURCE_DATE_EPOCH=1557240789
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
 cp COPYING %{buildroot}/usr/share/package-licenses/khotkeys/COPYING
@@ -211,7 +194,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.15.4
+/usr/lib64/libkhotkeysprivate.so.5.15.5
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
