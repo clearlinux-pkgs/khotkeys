@@ -1,4 +1,4 @@
-5.17.0
+5.17.1
 karchive-dev
 kcrash-dev
 kdbusaddons-dev
@@ -19,3 +19,4 @@ plasma-framework-dev
 plasma-workspace-dev
 qtx11extras-dev
 sonnet-dev
+util-linux
