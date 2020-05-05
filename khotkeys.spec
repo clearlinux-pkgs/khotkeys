@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.18.4.1
-Release  : 36
-URL      : https://download.kde.org/stable/plasma/5.18.4/khotkeys-5.18.4.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.4/khotkeys-5.18.4.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.4/khotkeys-5.18.4.1.tar.xz.sig
-Summary  : KHotKeys
+Version  : 5.18.5
+Release  : 37
+URL      : https://download.kde.org/stable/plasma/5.18.5/khotkeys-5.18.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.5/khotkeys-5.18.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.5/khotkeys-5.18.5.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: khotkeys-data = %{version}-%{release}
@@ -19,7 +19,10 @@ Requires: khotkeys-license = %{version}-%{release}
 Requires: khotkeys-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules-data
+BuildRequires : kdoctools-dev
 BuildRequires : kglobalaccel-dev
+BuildRequires : ki18n-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : plasma-framework-dev
 BuildRequires : plasma-workspace-dev
@@ -42,7 +45,6 @@ Group: Development
 Requires: khotkeys-lib = %{version}-%{release}
 Requires: khotkeys-data = %{version}-%{release}
 Provides: khotkeys-devel = %{version}-%{release}
-Requires: khotkeys = %{version}-%{release}
 Requires: khotkeys = %{version}-%{release}
 
 %description dev
@@ -84,36 +86,35 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.18.4.1
-cd %{_builddir}/khotkeys-5.18.4.1
+%setup -q -n khotkeys-5.18.5
+cd %{_builddir}/khotkeys-5.18.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585676731
+export SOURCE_DATE_EPOCH=1588700662
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1585676731
+export SOURCE_DATE_EPOCH=1588700662
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
-cp %{_builddir}/khotkeys-5.18.4.1/COPYING %{buildroot}/usr/share/package-licenses/khotkeys/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/khotkeys-5.18.4.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/khotkeys/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/khotkeys-5.18.5/COPYING %{buildroot}/usr/share/package-licenses/khotkeys/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/khotkeys-5.18.5/COPYING.LIB %{buildroot}/usr/share/package-licenses/khotkeys/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
@@ -200,7 +201,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.18.4
+/usr/lib64/libkhotkeysprivate.so.5.18.5
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
