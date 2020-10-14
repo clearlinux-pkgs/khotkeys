@@ -1,3 +1,7 @@
-5.19.4
+5.20.0
+kcmutils-dev
+kdelibs4support-dev
 kglobalaccel-dev
+kio-dev
+kxmlgui-dev
 plasma-framework-dev
