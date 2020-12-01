@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.20.3
-Release  : 45
-URL      : https://download.kde.org/stable/plasma/5.20.3/khotkeys-5.20.3.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.20.3/khotkeys-5.20.3.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.20.3/khotkeys-5.20.3.tar.xz.sig
+Version  : 5.20.4
+Release  : 46
+URL      : https://download.kde.org/stable/plasma/5.20.4/khotkeys-5.20.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.20.4/khotkeys-5.20.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.20.4/khotkeys-5.20.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -86,15 +86,15 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.20.3
-cd %{_builddir}/khotkeys-5.20.3
+%setup -q -n khotkeys-5.20.4
+cd %{_builddir}/khotkeys-5.20.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1605051821
+export SOURCE_DATE_EPOCH=1606838871
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -110,11 +110,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1605051821
+export SOURCE_DATE_EPOCH=1606838871
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
-cp %{_builddir}/khotkeys-5.20.3/COPYING %{buildroot}/usr/share/package-licenses/khotkeys/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/khotkeys-5.20.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/khotkeys/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/khotkeys-5.20.4/COPYING %{buildroot}/usr/share/package-licenses/khotkeys/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/khotkeys-5.20.4/COPYING.LIB %{buildroot}/usr/share/package-licenses/khotkeys/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
@@ -197,7 +197,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.20.3
+/usr/lib64/libkhotkeysprivate.so.5.20.4
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
