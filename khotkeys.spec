@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.20.5
-Release  : 48
-URL      : https://download.kde.org/stable/plasma/5.20.5/khotkeys-5.20.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.20.5/khotkeys-5.20.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.20.5/khotkeys-5.20.5.tar.xz.sig
+Version  : 5.21.4
+Release  : 49
+URL      : https://download.kde.org/stable/plasma/5.21.4/khotkeys-5.21.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.21.4/khotkeys-5.21.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.21.4/khotkeys-5.21.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 LGPL-2.1
+License  : GPL-2.0 LGPL-2.0
 Requires: khotkeys-data = %{version}-%{release}
 Requires: khotkeys-lib = %{version}-%{release}
 Requires: khotkeys-license = %{version}-%{release}
@@ -24,7 +24,6 @@ BuildRequires : kdoctools-dev
 BuildRequires : kglobalaccel-dev
 BuildRequires : ki18n-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
-BuildRequires : plasma-framework-dev
 BuildRequires : plasma-workspace-dev
 BuildRequires : qtbase-dev mesa-dev
 
@@ -86,15 +85,15 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.20.5
-cd %{_builddir}/khotkeys-5.20.5
+%setup -q -n khotkeys-5.21.4
+cd %{_builddir}/khotkeys-5.21.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1609866586
+export SOURCE_DATE_EPOCH=1618674720
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -110,11 +109,13 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1609866586
+export SOURCE_DATE_EPOCH=1618674720
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
-cp %{_builddir}/khotkeys-5.20.5/COPYING %{buildroot}/usr/share/package-licenses/khotkeys/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/khotkeys-5.20.5/COPYING.LIB %{buildroot}/usr/share/package-licenses/khotkeys/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/khotkeys-5.21.4/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/khotkeys/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/khotkeys-5.21.4/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/khotkeys/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/khotkeys-5.21.4/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/khotkeys-5.21.4/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
 pushd clr-build
 %make_install
 popd
@@ -183,6 +184,8 @@ popd
 /usr/share/doc/HTML/ru/kcontrol/khotkeys/shortcuts-action-keyboard.png
 /usr/share/doc/HTML/ru/kcontrol/khotkeys/shortcuts-trigger-keyboard.png
 /usr/share/doc/HTML/ru/kcontrol/khotkeys/shortcuts-trigger-mouse.png
+/usr/share/doc/HTML/sv/kcontrol/khotkeys/index.cache.bz2
+/usr/share/doc/HTML/sv/kcontrol/khotkeys/index.docbook
 /usr/share/doc/HTML/uk/kcontrol/khotkeys/groups-comment.png
 /usr/share/doc/HTML/uk/kcontrol/khotkeys/index.cache.bz2
 /usr/share/doc/HTML/uk/kcontrol/khotkeys/index.docbook
@@ -197,14 +200,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.20.5
+/usr/lib64/libkhotkeysprivate.so.5.21.4
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/khotkeys/01a6b4bf79aca9b556822601186afab86e8c4fbf
-/usr/share/package-licenses/khotkeys/7c203dee3a03037da436df03c4b25b659c073976
+/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
+/usr/share/package-licenses/khotkeys/2a638514c87c4923c0570c55822620fad56f2a33
+/usr/share/package-licenses/khotkeys/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
 %files locales -f khotkeys.lang
 %defattr(-,root,root,-)
