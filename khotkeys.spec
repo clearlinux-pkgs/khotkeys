@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.21.4
-Release  : 49
-URL      : https://download.kde.org/stable/plasma/5.21.4/khotkeys-5.21.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.21.4/khotkeys-5.21.4.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.21.4/khotkeys-5.21.4.tar.xz.sig
+Version  : 5.22.0
+Release  : 50
+URL      : https://download.kde.org/stable/plasma/5.22.0/khotkeys-5.22.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.22.0/khotkeys-5.22.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.22.0/khotkeys-5.22.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0
@@ -85,15 +85,15 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.21.4
-cd %{_builddir}/khotkeys-5.21.4
+%setup -q -n khotkeys-5.22.0
+cd %{_builddir}/khotkeys-5.22.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618674720
+export SOURCE_DATE_EPOCH=1623385379
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -109,13 +109,13 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618674720
+export SOURCE_DATE_EPOCH=1623385379
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
-cp %{_builddir}/khotkeys-5.21.4/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/khotkeys/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/khotkeys-5.21.4/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/khotkeys/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/khotkeys-5.21.4/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/khotkeys-5.21.4/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/khotkeys-5.22.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/khotkeys/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/khotkeys-5.22.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/khotkeys/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/khotkeys-5.22.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/khotkeys-5.22.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
 pushd clr-build
 %make_install
 popd
@@ -200,7 +200,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.21.4
+/usr/lib64/libkhotkeysprivate.so.5.22.0
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
