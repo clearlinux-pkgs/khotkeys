@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.22.1
-Release  : 51
-URL      : https://download.kde.org/stable/plasma/5.22.1/khotkeys-5.22.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.22.1/khotkeys-5.22.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.22.1/khotkeys-5.22.1.tar.xz.sig
+Version  : 5.22.5
+Release  : 52
+URL      : https://download.kde.org/stable/plasma/5.22.5/khotkeys-5.22.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.22.5/khotkeys-5.22.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.22.5/khotkeys-5.22.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0
@@ -85,37 +85,37 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.22.1
-cd %{_builddir}/khotkeys-5.22.1
+%setup -q -n khotkeys-5.22.5
+cd %{_builddir}/khotkeys-5.22.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623810785
+export SOURCE_DATE_EPOCH=1630973994
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623810785
+export SOURCE_DATE_EPOCH=1630973994
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
-cp %{_builddir}/khotkeys-5.22.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/khotkeys/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/khotkeys-5.22.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/khotkeys/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/khotkeys-5.22.1/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/khotkeys-5.22.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/khotkeys-5.22.5/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/khotkeys/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/khotkeys-5.22.5/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/khotkeys/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/khotkeys-5.22.5/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/khotkeys-5.22.5/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/khotkeys/20079e8f79713dce80ab09774505773c926afa2a
 pushd clr-build
 %make_install
 popd
@@ -200,7 +200,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.22.1
+/usr/lib64/libkhotkeysprivate.so.5.22.5
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
