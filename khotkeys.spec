@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.26.4
-Release  : 76
-URL      : https://download.kde.org/stable/plasma/5.26.4/khotkeys-5.26.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.26.4/khotkeys-5.26.4.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.26.4/khotkeys-5.26.4.tar.xz.sig
+Version  : 5.26.5
+Release  : 77
+URL      : https://download.kde.org/stable/plasma/5.26.5/khotkeys-5.26.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.5/khotkeys-5.26.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.5/khotkeys-5.26.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 LGPL-2.0
@@ -24,6 +24,9 @@ BuildRequires : kglobalaccel-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : plasma-workspace-dev
 BuildRequires : qtbase-dev mesa-dev
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 No detailed description available
@@ -83,31 +86,31 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.26.4
-cd %{_builddir}/khotkeys-5.26.4
+%setup -q -n khotkeys-5.26.5
+cd %{_builddir}/khotkeys-5.26.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1669822856
+export SOURCE_DATE_EPOCH=1673312592
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1669822856
+export SOURCE_DATE_EPOCH=1673312592
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
 cp %{_builddir}/khotkeys-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/khotkeys/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -198,7 +201,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.26.4
+/usr/lib64/libkhotkeysprivate.so.5.26.5
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
