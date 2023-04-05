@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.27.3
-Release  : 82
-URL      : https://download.kde.org/stable/plasma/5.27.3/khotkeys-5.27.3.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.27.3/khotkeys-5.27.3.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.27.3/khotkeys-5.27.3.tar.xz.sig
+Version  : 5.27.4
+Release  : 83
+URL      : https://download.kde.org/stable/plasma/5.27.4/khotkeys-5.27.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.4/khotkeys-5.27.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.4/khotkeys-5.27.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 LGPL-2.0
@@ -87,15 +87,15 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.27.3
-cd %{_builddir}/khotkeys-5.27.3
+%setup -q -n khotkeys-5.27.4
+cd %{_builddir}/khotkeys-5.27.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679526679
+export SOURCE_DATE_EPOCH=1680719492
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -111,7 +111,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1679526679
+export SOURCE_DATE_EPOCH=1680719492
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
 cp %{_builddir}/khotkeys-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/khotkeys/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -202,7 +202,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.27.3
+/usr/lib64/libkhotkeysprivate.so.5.27.4
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
