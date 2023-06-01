@@ -7,7 +7,7 @@
 #
 Name     : khotkeys
 Version  : 5.27.5
-Release  : 84
+Release  : 85
 URL      : https://download.kde.org/stable/plasma/5.27.5/khotkeys-5.27.5.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.27.5/khotkeys-5.27.5.tar.xz
 Source1  : https://download.kde.org/stable/plasma/5.27.5/khotkeys-5.27.5.tar.xz.sig
@@ -95,7 +95,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684818447
+export SOURCE_DATE_EPOCH=1685577890
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,7 +128,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684818447
+export SOURCE_DATE_EPOCH=1685577890
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
 cp %{_builddir}/khotkeys-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/khotkeys/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -224,7 +224,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libkhotkeysprivate.so.5
 /V3/usr/lib64/libkhotkeysprivate.so.5.27.5
 /V3/usr/lib64/qt5/plugins/kcm_hotkeys.so
 /V3/usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
