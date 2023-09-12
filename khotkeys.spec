@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : khotkeys
-Version  : 5.27.7
-Release  : 87
-URL      : https://download.kde.org/stable/plasma/5.27.7/khotkeys-5.27.7.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.27.7/khotkeys-5.27.7.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.27.7/khotkeys-5.27.7.tar.xz.sig
+Version  : 5.27.8
+Release  : 88
+URL      : https://download.kde.org/stable/plasma/5.27.8/khotkeys-5.27.8.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.8/khotkeys-5.27.8.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.8/khotkeys-5.27.8.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 LGPL-2.0
@@ -87,15 +87,15 @@ locales components for the khotkeys package.
 
 
 %prep
-%setup -q -n khotkeys-5.27.7
-cd %{_builddir}/khotkeys-5.27.7
+%setup -q -n khotkeys-5.27.8
+cd %{_builddir}/khotkeys-5.27.8
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1690900088
+export SOURCE_DATE_EPOCH=1694546548
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,7 +128,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1690900088
+export SOURCE_DATE_EPOCH=1694546548
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khotkeys
 cp %{_builddir}/khotkeys-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/khotkeys/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -224,11 +224,11 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libkhotkeysprivate.so.5.27.7
+/V3/usr/lib64/libkhotkeysprivate.so.5.27.8
 /V3/usr/lib64/qt5/plugins/kcm_hotkeys.so
 /V3/usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 /usr/lib64/libkhotkeysprivate.so.5
-/usr/lib64/libkhotkeysprivate.so.5.27.7
+/usr/lib64/libkhotkeysprivate.so.5.27.8
 /usr/lib64/qt5/plugins/kcm_hotkeys.so
 /usr/lib64/qt5/plugins/kf5/kded/khotkeys.so
 
